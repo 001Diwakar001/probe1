@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Train Status Details</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Custom CSS -->
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background: url('FINAL-12.avif') no-repeat center center fixed;
+      background-size: cover;
+      height: 100vh;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: rgb(233, 223, 38);
+    }
+
+    .status-table {
+      margin-top: 50px;
+    }
+
+    .table th, .table td {
+      vertical-align: middle;
+    }
+
+    .table th {
+      background-color: #007bff;
+      color: #fff;
+    }
+
+    .table td {
+      background-color: #e9ecef;
+    }
+
+    /* Adding borders to table */
+    .table-bordered th, .table-bordered td {
+      border: 1px solid #dee2e6;
+      height: 100px;
+      width: 150px;
+      text-align: center;
+    }
+
+    /* Optional hover effect on table rows */
+    .table tbody tr:hover {
+      background-color: #dfefff;
+    }
+
+    /* Additional Styling */
+    .container {
+      background: rgba(0, 0, 0, 0.7);
+      padding: 20px;
+      border-radius: 15px;
+    }
+
+    /* Styling the buttons */
+    .select-buttons {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .select-buttons button {
+      margin-right: 10px;
+    }
+    .modal-body p{
+        color: black;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1><b>Train Status Details</b></h1>
+    <div class="row justify-content-center status-table">
+      <div class="col-md-6">
+        <div class="select-buttons">
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#trainModal">
+            Complaint if any discrepancy found
+          </button>
+        </div>
+
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>Details</th>
+              <th>Count</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Table rows go here -->
+            <tr>
+                <td>Train Number</td>
+                <td id="totalWagons">TR57327</td> <!-- Replace with actual value -->
+              </tr>
+            <tr>
+              <td>Number of Wagons in the Train</td>
+              <td id="totalWagons">100</td> <!-- Replace with actual value -->
+            </tr>
+            <tr>
+              <td>Weight of Coal at the time of loading(in TON)</td>
+              <td id="filledWagons">120000</td> <!-- Replace with actual value -->
+            </tr>
+            <tr>
+              <td>Weight of Coal at the time of unloading(in TON)</td>
+              <td id="unfilledWagons">120000</td> <!-- Replace with actual value -->
+            </tr>
+            <tr>
+              <td>Difference in weight(in TON)</td>
+              <td id="loadingWagons">0</td> <!-- Replace with actual value -->
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="trainModal" tabindex="-1" role="dialog" aria-labelledby="trainModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="trainModalLabel">Select Train</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <!-- Modal content goes here (e.g., additional form elements or information) -->
+          <p>Describe your problem</p>
+          <textarea class="form-control" rows="4" placeholder="Enter your complaint"></textarea>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" onclick="saveChanges()">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap and jQuery JS -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  <script>
+    function saveChanges() {
+      // Add your save changes logic here
+      // For now, just close the modal
+      $('#trainModal').modal('hide');
+    }
+  </script>
+</body>
+</html>
